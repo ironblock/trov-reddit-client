@@ -1,0 +1,24 @@
+{
+  "name": "trov-reddit-client",
+  "version": "0.1.0",
+  "description": "A Reddit client for the Trov JS code test",
+  "main": "index.js",
+  "engine-strict": true,
+  "engines": {
+    "node": ">=4.x",
+    "npm": ">=3.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ironblock/trov-reddit-client.git"
+  },
+  "author": "Corey Vixie",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/ironblock/trov-reddit-client/issues"
+  },
+  "homepage": "https://github.com/ironblock/trov-reddit-client#readme"
+}
