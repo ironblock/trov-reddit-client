@@ -76,9 +76,6 @@ function handleRender ( req, res ) {
         </Provider>
       );
 
-      console.log( renderProps )
-      console.log( content )
-
       res.status( 200 ).send( renderFullPage( content, preloadedState ) );
     } else {
       // The location did not match any route
