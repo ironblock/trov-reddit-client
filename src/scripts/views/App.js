@@ -8,7 +8,7 @@ import React from "react";
 
 const App = ({ children }) => (
   <div className="app-wrapper">
-    <h1>App Wrapper Test</h1>
+    <h1>Reddit Client</h1>
     { children }
   </div>
 );
