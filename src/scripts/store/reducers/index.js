@@ -8,7 +8,14 @@ import { combineReducers } from "redux";
 // VENDOR
 import { routerReducer as routing } from "react-router-redux";
 
+// WEBAPP
+import subreddit from "./subreddit";
+
 export default combineReducers(
+  // Vendor reducers
   { routing
+
+  // Webapp reducers
+  , subreddit
   }
 );
