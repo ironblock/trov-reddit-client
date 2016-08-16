@@ -13,7 +13,7 @@ import Helmet from "react-helmet";
 
 export default class Html extends Component {
   static propTypes =
-    { preloadedState : PropTypes.object
+    { preloadedState : PropTypes.string
     , content        : PropTypes.string
     };
 
@@ -38,6 +38,11 @@ export default class Html extends Component {
             id                      = "REACT_ROOT"
             dangerouslySetInnerHTML = {{ __html: this.props.content }}
           />
+
+          {/* APP STATE */}
+          <script dangerouslySetInnerHTML={
+            { __html: `window.__PRELOADED_STATE__=${ this.props.preloadedState }` }
+          } />
 
           {/* BUNDLED JAVASCRIPT PAYLOAD */}
           <script src="./static/bundle.js" defer />

@@ -69,7 +69,7 @@ function handleRender ( req, res ) {
       res.redirect( 302, redirectLocation.pathname + redirectLocation.search );
     } else if ( renderProps ) {
       // The location matched a known route
-      const preloadedState = Store.getState();
+      const preloadedState = JSON.stringify( Store.getState() );
       const content = ReactDOMServer.renderToString(
         <Provider store={ Store }>
           <RouterContext { ...renderProps } />
