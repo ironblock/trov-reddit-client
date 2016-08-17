@@ -1,0 +1,23 @@
+// POST SUMMARY - STYLE
+// =============================================================================
+
+@import "../../../styles/modules/flexbox";
+@import "../../../styles/modules/gradients";
+
+$sub-selector-basis: 70px;
+
+.sub-selector {
+  @include gradient-x( #43cea2, #185a9d );
+  @include flex-display( flex );
+  @include justify-content( center );
+  @include align-items( center );
+
+  position    : fixed;
+  width       : 100%;
+  min-height  : $sub-selector-basis;
+  white-space : pre;
+
+  & + * {
+    margin-top: $sub-selector-basis * 1.2;
+  }
+}

@@ -16,3 +16,11 @@ export const subredditQuerySuccess =
 
 export const subredditQueryFailure =
   createAction( subredditActionTypes.SUBREDDIT_QUERY_FAILURE );
+
+// UPDATE TARGET SUBREDDIT INPUT
+export const updateTargetSubreddit =
+  createAction( subredditActionTypes.SUBREDDIT_TARGET_UPDATE );
+
+// CHANGE SELECTED SUBREDDIT
+export const updateSelectedSubreddit =
+  createAction( subredditActionTypes.SUBREDDIT_SELECTED_UPDATE );

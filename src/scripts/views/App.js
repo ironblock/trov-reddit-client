@@ -6,6 +6,9 @@
 
 import React from "react";
 
+// CONTAINERS
+import SubSelector from "../containers/SubSelector";
+
 const App = ({ children }) => {
   // GLOBAL APP STYLES
   if ( process.env.BROWSER ) {
@@ -14,7 +17,7 @@ const App = ({ children }) => {
 
   return (
     <div className="app-wrapper">
-      <h1>Reddit Client</h1>
+      <SubSelector />
       { children }
     </div>
   );

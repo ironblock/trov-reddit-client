@@ -33,9 +33,9 @@ class Subreddit extends Component {
   }
 
   componentWillReceiveProps ( nextProps ) {
-    // If the subreddit target changes, we need to refresh. All of our cached
-    // posts will be for the previous subreddit.
-    if ( nextProps.subreddit !== this.props.subreddit ) {
+    // If the selected subreddit changes, we need to refresh. All of our cached
+    // posts will be for the previous subreddit and will get tossed by Redux.
+    if ( nextProps.selected !== this.props.selected ) {
       this.forceRefresh();
     }
   }
@@ -88,7 +88,9 @@ class Subreddit extends Component {
   render () {
     return (
       <div className="subreddit container">
-        <h1>{ this.props.isFetching ? "FETCHING DATA" : "" }</h1>
+        <h1>
+          { this.props.selected || "Front Page" }
+        </h1>
         { this.props.posts.map( ( post, index ) =>
           <PostSummary key={ index } { ...post.data } />
         ) }
