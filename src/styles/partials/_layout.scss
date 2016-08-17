@@ -9,11 +9,15 @@ body {
   min-height  : 100vh;
   color       : #444444;
   font-weight : 300;
-  background  : #F1F1F1;
+  background  : #EAEAEA;
 }
 
 #REACT_ROOT {
   @include flex-display( flex );
   @include flex( 1 );
   @include justify-content( center );
+}
+
+.app-wrapper {
+  @include flex( 1 );
 }
