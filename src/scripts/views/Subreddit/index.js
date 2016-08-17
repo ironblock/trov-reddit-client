@@ -11,6 +11,9 @@ import moment from "moment";
 // API
 import { subredditQuery } from "../../api/subreddit";
 
+// COMPONENTS
+import PostSummary from "../../components/PostSummary";
+
 class Subreddit extends Component {
   constructor ( props ) {
     super( props );
@@ -44,7 +47,9 @@ class Subreddit extends Component {
   render () {
     return (
       <div className="subreddit">
-        { this.props.posts.map( ( post, index ) => <p key={ index }>{ post.data.title }</p> ) }
+        { this.props.posts.map( ( post, index ) =>
+          <PostSummary key={ index } { ...post.data } />
+        ) }
       </div>
     );
   }
