@@ -6,7 +6,7 @@
 @import "../../../styles/modules/gradients";
 @import "../../../styles/modules/motion";
 
-$sub-selector-basis : 70px;
+$sub-selector-basis : 50px;
 $input-border-width : 1px;
 $accent-color       : lighten( $color-primary, 30% );
 
@@ -23,7 +23,7 @@ $accent-color       : lighten( $color-primary, 30% );
   color       : #CCC;
 
   & + * {
-    margin-top: $sub-selector-basis * 1.2;
+    margin-top: $sub-selector-basis * 1.5;
   }
 
   a, input {
@@ -43,13 +43,14 @@ $accent-color       : lighten( $color-primary, 30% );
     position     : relative;
     color        : inherit;
     margin-right : 0.25em;
+    margin-top   : $input-border-width * -1;
   }
 
   input {
     background : none;
     border     : none;
     padding    : 0;
-    height     : 1em;
+    height     : auto;
 
     &:hover, &:focus,&:active {
       & + .input-underline:after {
