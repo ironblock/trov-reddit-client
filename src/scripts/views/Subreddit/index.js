@@ -46,7 +46,7 @@ class Subreddit extends Component {
 
   render () {
     return (
-      <div className="subreddit">
+      <div className="subreddit container">
         { this.props.posts.map( ( post, index ) =>
           <PostSummary key={ index } { ...post.data } />
         ) }

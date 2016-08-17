@@ -15,4 +15,5 @@ body {
 #REACT_ROOT {
   @include flex-display( flex );
   @include flex( 1 );
+  @include justify-content( center );
 }

@@ -1,0 +1,11 @@
+// SUBREDDIT VIEW - STYLE
+// =============================================================================
+
+@import "../../../styles/modules/flexbox";
+
+.subreddit {
+  @include flex-display( flex );
+  @include flex-flow( column nowrap );
+
+  overflow: auto;
+}
