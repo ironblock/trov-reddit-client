@@ -1,0 +1,97 @@
+// POST SUMMARY - STYLE
+// =============================================================================
+
+@import "../../../styles/modules/colors";
+@import "../../../styles/modules/flexbox";
+@import "../../../styles/modules/variables";
+
+$post-basis: 100px;
+@mixin desaturated-link() {
+  color: desaturate( $color-primary, 50% );
+  &:hover{
+    color: $color-primary;
+    border-bottom-color: transparent;
+  }
+}
+
+.post-summary {
+  @include flex-display( flex );
+  @include flex-flow( row nowrap );
+
+  min-height : $post-basis;
+  margin     : 0.5em;
+  background : #f5f5f5;
+  box-shadow : 2px 2px 1px -1px rgba( 0, 0, 0, 0.05 );
+  border     : 1px solid #efefef;
+
+  // SCORE DISPLAY
+  .score {
+    @include flex-display( flex );
+    @include justify-content( center );
+    @include align-items( center );
+    @include flex( 0 0 auto );
+
+    width       : $post-basis;
+    color       : #666;
+    font-size   : ms( 3 );
+    font-weight : 800;
+  }
+
+  // THUMBNAIL IMAGE
+  .thumbnail {
+    @include flex-display( flex );
+    @include justify-content( center );
+    @include align-items( center );
+    @include flex( 0 0 auto );
+
+    width      : $post-basis;
+    min-height : $post-basis;
+    background : #DDD;
+
+    & > img {
+      max-width  : 100%;
+      max-height : 100%;
+    }
+  }
+
+  // POST DATA
+  .post-data {
+    @include flex-display( flex );
+    @include flex-flow( column wrap );
+    @include justify-content( center );
+    @include flex( 1 );
+
+    padding: 0.25em 1em;
+  }
+
+  // ATTRIBUTION DATA
+  .attribution {
+    @include flex-display( flex );
+
+    font-size      : ms( -2 );
+    color          : #999;
+    border-bottom  : 1px solid;
+    margin-bottom  : 1em;
+    padding-bottom : 0.25em;
+
+    a {
+      @include desaturated-link();
+    }
+  }
+
+  .author {
+    @include flex( 1 );
+  }
+
+  .origin {
+    @include align-self( flex-end );
+  }
+
+  // COMMENTS LINK
+  .comments {
+    @include desaturated-link();
+
+    font-size : ms( -1 );
+    margin-top: 0.5em;
+  }
+}

@@ -8,12 +8,6 @@ import React, { PropTypes } from "react";
 import classNames from "classnames";
 import moment from "moment";
 
-
-// STYLESHEET
-if ( process.env.BROWSER ) {
-  // require( "./style.scss" );
-}
-
 // HELPERS
 const getThumbnailSource = source => {
   switch( source ) {
@@ -30,27 +24,62 @@ const getThumbnailSource = source => {
 
 // COMPONENT
 const PostSummary = ( props ) => {
-  const CLASSES = classNames( props.className
-                            , {
+  // STYLESHEET
+  if ( process.env.BROWSER ) {
+    require( "./style.scss" );
+  }
+
+  const CLASSES = classNames( "post-summary"
+                            , props.className
+                            , { "nsfw": props.over_18
                               }
                             );
 
   return (
     <div className={ CLASSES }>
       <div className="score">
-        <span className="total">{ props.score }</span>
-        <span className="ups">{ props.ups }</span>
-        <span className="down">{ props.down }</span>
+        { props.score }
       </div>
 
-      <img className="thumbnail" src={ getThumbnailSource( props.thumbnail ) } />
+      <div className="thumbnail">
+        <img src={ getThumbnailSource( props.thumbnail ) } />
+      </div>
 
       <div className="post-data">
-        <a target="_blank" href={ props.url }>{ props.title }</a>
-        <a target="_blank" href={ `//:reddit.com${ props.permalink }` }>Permalink</a>
-        <a>{ props.author }</a>
-        <span>{ moment.unix( props.created_utc ).local().fromNow() }</span>
-        <a>{ props.subreddit }</a>
+        <span className="attribution">
+          <span className="author">
+            { "Submitted "
+            + moment.unix( props.created_utc ).local().fromNow()
+            + " by "
+            }
+            <a href={`//reddit.com/user/${ props.author }`}>
+              { props.author }
+            </a>
+          </span>
+          <a
+            className = "origin"
+            href      = {`//reddit.com/r/${ props.subreddit }`}
+            target    = "_blank"
+          >
+            { `r/${ props.subreddit }` }
+          </a>
+        </span>
+
+        <span className="post-link">
+          <a
+            target    = "_blank"
+            href      = { props.url }
+          >
+            { props.title }
+          </a>
+        </span>
+        <a
+          className = "comments"
+          target    = "_blank"
+          href      = { `//reddit.com${ props.permalink }` }
+        >
+          { `${ props.num_comments } comments` }
+        </a>
       </div>
     </div>
   );
@@ -60,7 +89,6 @@ PostSummary.propTypes =
   { author        : PropTypes.string.isRequired
   , created_utc   : PropTypes.number.isRequired
   , domain        : PropTypes.string
-  , downs         : PropTypes.number.isRequired
   , edited        : PropTypes.oneOfType(
                     [ PropTypes.bool
                     , PropTypes.number
@@ -84,7 +112,6 @@ PostSummary.propTypes =
   , subreddit_id  : PropTypes.string.isRequired
   , thumbnail     : PropTypes.string
   , title         : PropTypes.string.isRequired
-  , ups           : PropTypes.number.isRequired
   , url           : PropTypes.string
   , visited       : PropTypes.bool.isRequired
   };
