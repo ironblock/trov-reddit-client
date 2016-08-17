@@ -32,6 +32,6 @@ export default handleActions(
     , isFetching : false
     , loadError  : null
     , lastUpdate : null
-    , staleAfter : 6000
+    , staleAfter : 60000
     }
 );
