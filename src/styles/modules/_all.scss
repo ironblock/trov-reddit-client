@@ -1,0 +1,13 @@
+// ALL MODULES
+// =============================================================================
+// Modules will not cause SASS to output any real CSS. As such, they are safe to
+// reference from any component or stylesheet which needs access to the core
+// project styles. This file references all of the individual modules.
+
+@import "_colors";
+@import "_flexbox";
+@import "_interaction";
+@import "_motion";
+@import "_type";
+@import "_variables";
+@import "_viewports";

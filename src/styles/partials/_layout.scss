@@ -1,0 +1,18 @@
+// APP LAYOUT - PARTIAL
+// =============================================================================
+// Sets up fundamental aspects of app layout.
+
+body {
+  @include flex-display( flex );
+  @include flex-flow( column );
+
+  min-height  : 100vh;
+  color       : #444444;
+  font-weight : 300;
+  background  : #F1F1F1;
+}
+
+#REACT_ROOT {
+  @include flex-display( flex );
+  @include flex( 1 );
+}

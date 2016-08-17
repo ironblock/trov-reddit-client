@@ -1,0 +1,42 @@
+// MOTION - MODULE
+// =============================================================================
+
+// TRANSITION
+@mixin transition( $transition... ) {
+  -webkit-transition : $transition;
+     -moz-transition : $transition;
+      -ms-transition : $transition;
+       -o-transition : $transition;
+          transition : $transition;
+}
+
+// TRANSFORM
+@mixin transform( $transform... ) {
+  -webkit-transform : $transform;
+     -moz-transform : $transform;
+       -o-transform : $transform;
+          transform : $transform;
+}
+
+// ANIMATION
+@mixin animation( $animation... ) {
+  -webkit-animation : $animation;
+     -moz-animation : $animation;
+      -ms-animation : $animation;
+       -o-animation : $animation;
+          animation : $animation;
+}
+
+$ease-in-out-quad : cubic-bezier( 0.2, 0, 0.45, 1 );
+
+$ease-in-out-standard : cubic-bezier( 0.4, 0, 0.2, 1 );
+$ease-in-standard     : cubic-bezier( 0.4, 0, 1, 1 );
+$ease-out-standard    : cubic-bezier( 0, 0, 0.2, 1 );
+
+$duration-desktop-short  : 0.100s;
+$duration-desktop-medium : 0.150s;
+$duration-desktop-long   : 0.200s;
+
+$duration-mobile-short  : 0.195s;
+$duration-mobile-medium : 0.225s;
+$duration-mobile-long   : 0.375s;

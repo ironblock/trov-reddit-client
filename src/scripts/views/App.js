@@ -6,11 +6,18 @@
 
 import React from "react";
 
-const App = ({ children }) => (
-  <div className="app-wrapper">
-    <h1>Reddit Client</h1>
-    { children }
-  </div>
-);
+const App = ({ children }) => {
+  // GLOBAL APP STYLES
+  if ( process.env.BROWSER ) {
+    require( "../../styles/main.scss" );
+  }
+
+  return (
+    <div className="app-wrapper">
+      <h1>Reddit Client</h1>
+      { children }
+    </div>
+  );
+};
 
 export default App;

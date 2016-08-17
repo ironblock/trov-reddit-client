@@ -1,0 +1,21 @@
+// BASE STYLESHEET DOCUMENT
+// =============================================================================
+// This file contains references to all relevant partial SASS styles. Styles
+// which are specific to a given React component should be included with the
+// component's source JavaScript file in effort to make the components both
+// portable and decoupled.
+
+// CSS RESET
+@import "partials/reset";
+
+// EXTERNAL MODULES
+@import "~modularscale-sass/stylesheets/modular-scale";
+
+// Import all mixins and variables
+@import "partials/base";
+
+// Construct CSS from partials
+@import "partials/grid";
+@import "partials/type";
+@import "partials/layout";
+@import "partials/ux";

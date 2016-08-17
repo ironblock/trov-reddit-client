@@ -1,0 +1,26 @@
+// USER EXPERIENCE - PARTIAL
+// =============================================================================
+// A collection of styling decisions that affect the overall "feel" of the
+// application as a whole.
+
+// To provide a more "app-like" experience, text-selection is disabled by
+// default. It can be re-enabled with the `.allow-select()` mixin.
+* {
+  box-sizing: border-box;
+  @include no-select();
+}
+
+// All input selection should be allowed, and this needs to be overridden to
+// prevent browsers from making it impossible to select anything at all.
+// Paragraph text is relatively rare in this webapp, and generally will be used
+// in a context where selecting text would be sensible and applicable.
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+p, .p, input, .radio, .checkbox {
+  @include allow-select();
+}
+
+// Buttons have a high affordance, and should not use the pointer style cursor
+button, .btn, .button {
+  cursor: default;
+}

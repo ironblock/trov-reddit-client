@@ -1,0 +1,129 @@
+// TYPE - PARTIAL
+// =============================================================================
+// Declarations for all of the core font styles.
+
+html {
+  font: 400 #{ ms(0) }/1.2 Helvetica, sans-serif;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: none;
+   -webkit-font-smoothing: subpixel-antialiased;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-weight: 200;
+  line-height: 1.25;
+  margin: 0.25em 0;
+}
+
+h1, .h1 { font-size: ms(6); margin-top: ms(7); margin-bottom: ms(5) / 2; }
+h2, .h2 { font-size: ms(5); margin-top: ms(6); margin-bottom: ms(4) / 2; }
+h3, .h3 { font-size: ms(4); margin-top: ms(5); margin-bottom: ms(3) / 2; }
+h4, .h4 { font-size: ms(3); margin-top: ms(4); margin-bottom: ms(2) / 2; }
+h5, .h5 { font-size: ms(2); margin-top: ms(3); margin-bottom: ms(1) / 2; }
+h6, .h6 { font-size: ms(1); margin-top: ms(2); margin-bottom: ms(0) / 2; }
+
+p, .p {
+  font-size: ms(0);
+  line-height: 1.5;
+  margin: 0 0 1em;
+
+  word-break: break-all;
+  word-break: break-word;
+
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+
+  &:last-child {
+    margin-bottom: 2em;
+  }
+}
+
+.indent p + p {
+  text-indent: 2em;
+  margin-top: -1em;
+}
+
+small, .small {
+  font-size: ms(-1);
+}
+
+b, strong, .strong {
+  font-weight: 600;
+}
+
+i, em {
+  font-style: italic;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+
+  &:hover,
+  &:visited {
+    border-bottom-color: inherit;
+  }
+
+  &:visited {
+    color: darken( $color-primary, 5% );
+  }
+
+  &:disabled,
+  &.disabled,
+  &[disabled] {
+    color: grayscale( $color-primary );
+    cursor: default;
+      &:hover,
+      &:visited {
+        border-bottom: none;
+      }
+  }
+}
+
+.text-center { text-align: center !important; }
+.text-right  { text-align: right !important; }
+.text-left   { text-align: left !important; }
+
+code {
+  display: block;
+  padding: 1.5em 2em;
+  background: rgba( 66, 66, 66, 0.95 );
+  color: #F1F1F1;
+  font-family: monospace;
+  font-size: 1em;
+  white-space: pre;
+
+  span, p {
+    font: inherit;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+li {
+  font: inherit;
+  line-height: 1.5;
+  margin-left: 1.75em;
+}
+
+ul {
+  list-style: disc outside none;
+}
+
+ol {
+  list-style: decimal outside none;
+}

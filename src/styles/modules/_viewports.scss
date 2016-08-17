@@ -1,0 +1,12 @@
+// VIEWPORTS - MODULE
+// =============================================================================
+// Definitions for viewport sizes to be considered as significant breakpoints in
+// SASS, usually for responsive design.
+
+$sm-viewport-width: 48em;
+$md-viewport-width: 64em;
+$lg-viewport-width: 75em;
+
+$sm-viewport: "only screen and (min-width: #{ $sm-viewport-width })";
+$md-viewport: "only screen and (min-width: #{ $md-viewport-width })";
+$lg-viewport: "only screen and (min-width: #{ $lg-viewport-width })";
