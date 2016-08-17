@@ -35,6 +35,13 @@ const PostSummary = ( props ) => {
                               }
                             );
 
+  // We consider a post to share the origin with the active subreddit if they
+  // have the same string value. This allows us to display the post location
+  // only on multireddits or the front page, and hide them when they're all
+  // children of the active subreddit.
+  const sameOriginSubreddit = ( props.selectedSubreddit && props.subreddit )
+    && props.selectedSubreddit.toLowerCase() === props.subreddit.toLowerCase();
+
   return (
     <div className={ CLASSES }>
       <div className="score">
@@ -56,13 +63,17 @@ const PostSummary = ( props ) => {
               { props.author }
             </a>
           </span>
-          <a
-            className = "origin"
-            href      = {`//reddit.com/r/${ props.subreddit }`}
-            target    = "_blank"
-          >
-            { `r/${ props.subreddit }` }
-          </a>
+          { sameOriginSubreddit
+          ? null
+          : (
+            <a
+              className = "origin"
+              href      = {`//reddit.com/r/${ props.subreddit }`}
+              target    = "_blank"
+            >
+              { `r/${ props.subreddit }` }
+            </a>
+          ) }
         </span>
 
         <span className="post-link">
@@ -86,6 +97,7 @@ const PostSummary = ( props ) => {
 };
 
 PostSummary.propTypes =
+  // POST DATA
   { author        : PropTypes.string.isRequired
   , created_utc   : PropTypes.number.isRequired
   , domain        : PropTypes.string
@@ -114,6 +126,9 @@ PostSummary.propTypes =
   , title         : PropTypes.string.isRequired
   , url           : PropTypes.string
   , visited       : PropTypes.bool.isRequired
+
+  // METADATA
+  , selectedSubreddit : PropTypes.string
   };
 
 export default PostSummary;

@@ -92,7 +92,11 @@ class Subreddit extends Component {
           { this.props.selected || "Front Page" }
         </h1>
         { this.props.posts.map( ( post, index ) =>
-          <PostSummary key={ index } { ...post.data } />
+          <PostSummary
+            { ...post.data }
+            key               = { index }
+            selectedSubreddit = { this.props.selected }
+          />
         ) }
       </div>
     );
