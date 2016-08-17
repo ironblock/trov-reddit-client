@@ -1,10 +1,14 @@
 // POST SUMMARY - STYLE
 // =============================================================================
 
+@import "../../../styles/modules/colors";
 @import "../../../styles/modules/flexbox";
 @import "../../../styles/modules/gradients";
+@import "../../../styles/modules/motion";
 
-$sub-selector-basis: 70px;
+$sub-selector-basis : 70px;
+$input-border-width : 1px;
+$accent-color       : lighten( $color-primary, 30% );
 
 .sub-selector {
   @include gradient-x( #43cea2, #185a9d );
@@ -16,8 +20,65 @@ $sub-selector-basis: 70px;
   width       : 100%;
   min-height  : $sub-selector-basis;
   white-space : pre;
+  color       : #CCC;
 
   & + * {
     margin-top: $sub-selector-basis * 1.2;
+  }
+
+  a, input {
+    font-size: inherit;
+    color: #F1F1F1;
+  }
+
+  a {
+    border: none;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .input-wrapper {
+    position     : relative;
+    color        : inherit;
+    margin-right : 0.25em;
+  }
+
+  input {
+    background : none;
+    border     : none;
+    padding    : 0;
+    height     : 1em;
+
+    &:hover, &:focus,&:active {
+      & + .input-underline:after {
+        @include transform( scaleX(1) );
+
+        border-bottom-color: $accent-color;
+      }
+    }
+  }
+
+  .input-underline {
+    &,
+    &:after {
+      box-sizing    : content-box;
+      font-size     : inherit;
+      border-bottom : $input-border-width solid #D0D0D0;
+      position      : absolute;
+      top           : 100%;
+      right         : 0;
+      left          : 0;
+    }
+
+    &:after {
+      @include transform( scaleX(0) );
+      @include transition( transform 250ms #{ $ease-in-out-quad } );
+
+      content             : "";
+      display             : block;
+      border-bottom-color : transparent;
+    }
   }
 }

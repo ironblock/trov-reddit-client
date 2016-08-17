@@ -21,11 +21,15 @@ const SubSelector = ( props ) => {
         Front Page
       </Link>
       {" or "}
-      <input
-        type     = "text"
-        onChange = { event => props.onTargetSubredditChange( event.target.value ) }
-        value    = { props.targetSubreddit }
-      />
+      <span className="input-wrapper">
+        {"/r/"}
+        <input
+          type     = "text"
+          onChange = { event => props.onTargetSubredditChange( event.target.value ) }
+          value    = { props.targetSubreddit }
+        />
+        <span className="input-underline" />
+      </span>
       <Link to={ subredditLink }>
         Go
       </Link>
