@@ -18,13 +18,54 @@ class Subreddit extends Component {
   constructor ( props ) {
     super( props );
 
-    this.postsAreStale = this.postsAreStale.bind( this );
+    this.refreshLoop = null;
+
+    this.forceRefresh       = this.forceRefresh.bind( this );
+    this.checkRefreshNeeded = this.checkRefreshNeeded.bind( this );
+    this.cleanUpRefreshLoop = this.cleanUpRefreshLoop.bind( this );
+    this.postsAreStale      = this.postsAreStale.bind( this );
   }
 
   componentDidMount () {
-    if ( this.postsAreStale() ) {
+    // When a Subreddit is mounted into the DOM for the first time, we want to
+    // fetch its data no matter what - no check is needed first.
+    this.forceRefresh();
+  }
+
+  componentWillReceiveProps ( nextProps ) {
+    // If the subreddit target changes, we need to refresh. All of our cached
+    // posts will be for the previous subreddit.
+    if ( nextProps.subreddit !== this.props.subreddit ) {
+      this.forceRefresh();
+    }
+  }
+
+  componentWillUnmount () {
+    // Destroy timer loop before component unmounts
+    this.cleanUpRefreshLoop();
+  }
+
+  forceRefresh () {
+    // Forces a re-query of posts for the current subreddit, and may be called
+    // by the user to manually issue a refresh.
+    this.cleanUpRefreshLoop();
+    this.checkRefreshNeeded();
+  }
+
+  checkRefreshNeeded () {
+    // If our posts require an update, refresh them
+    if ( this.postsAreStale ) {
       this.props.queryPosts();
     }
+
+    // Reset the loop
+    this.refreshLoop = setTimeout( this.checkRefreshNeeded, this.props.staleAfter );
+  }
+
+  cleanUpRefreshLoop () {
+    // Clears the timeout and reinitializes the property to its initial value
+    clearTimeout( this.refreshLoop );
+    this.refreshLoop = null;
   }
 
   postsAreStale () {
@@ -47,6 +88,7 @@ class Subreddit extends Component {
   render () {
     return (
       <div className="subreddit container">
+        <h1>{ this.props.isFetching ? "FETCHING DATA" : "" }</h1>
         { this.props.posts.map( ( post, index ) =>
           <PostSummary key={ index } { ...post.data } />
         ) }
