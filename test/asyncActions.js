@@ -8,7 +8,7 @@ import fetchMock from "fetch-mock";
 
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
-import expect from "expect";
+import { expect } from "chai";
 
 import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
 
@@ -51,7 +51,7 @@ describe( "Redux Async Actions", () => {
 
       return store.dispatch( SubredditAPI.subredditQuery() )
         .then( () => {
-          expect( store.getActions() ).toEqual( expectedActions );
+          expect( store.getActions() ).to.deep.equal( expectedActions );
         });
     }
   );
@@ -63,7 +63,7 @@ describe( "Redux Async Actions", () => {
                     , { status: 404 }
                     );
 
-      const jkdsfhgksdjgh =
+      const expectedActions =
         [ { type: SubredditActionTypes.SUBREDDIT_QUERY_REQUEST }
         , { type    : SubredditActionTypes.SUBREDDIT_QUERY_FAILURE
           , error   : true
@@ -86,7 +86,7 @@ describe( "Redux Async Actions", () => {
 
       return store.dispatch( SubredditAPI.subredditQuery() )
         .then( () => {
-          expect( store.getActions() ).toEqual( jkdsfhgksdjgh );
+          expect( store.getActions() ).to.deep.equal( expectedActions );
         });
     }
   );

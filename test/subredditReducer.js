@@ -1,7 +1,7 @@
 // SUBREDDIT REDUCER - TEST
 // =============================================================================
 
-import expect from "expect";
+import { expect } from "chai";
 import moment from "moment";
 
 import * as SubredditActions from "../src/scripts/actions/subreddit";
@@ -9,6 +9,7 @@ import subredditReducer      from "../src/scripts/store/reducers/subreddit";
 
 import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
 
+const startTime = moment().valueOf();
 const initialState =
   { selected   : null
   , target     : ""
@@ -22,34 +23,30 @@ const initialState =
 describe( "Subreddit Reducer", () => {
   it( "should return initial state", () => {
     expect( subredditReducer( undefined, {} ) )
-      .toEqual( initialState );
+      .to.deep.equal( initialState );
   });
 
   it( "should handle SUBREDDIT_QUERY_REQUEST", () => {
     expect( subredditReducer( {}, SubredditActions.subredditQueryRequest() ) )
-      .toEqual({ isFetching: true });
+      .to.deep.equal({ isFetching: true });
   });
 
   it( "should handle SUBREDDIT_QUERY_SUCCESS", () => {
     const reducer = subredditReducer( {}, SubredditActions.subredditQuerySuccess( sampleSubredditResponse ) );
-    expect( reducer )
-      .toMatch(
-        { isFetching : false
-        , loadError  : null
-        , posts      : sampleSubredditResponse.data.children
-        }
-      );
-    expect( reducer.lastUpdate ).toBeLessThanOrEqualTo( moment().valueOf() );
+    const currentTime = moment().valueOf();
+
+    expect( reducer.isFetching ).to.equal( false );
+    expect( reducer.loadError ).to.equal( null );
+    expect( reducer.posts ).to.deep.equal( sampleSubredditResponse.data.children );
+    expect( reducer.lastUpdate ).to.be.within( startTime, currentTime );
   });
 
   it( "should handle SUBREDDIT_QUERY_FAILURE", () => {
     const reducer = subredditReducer( {}, SubredditActions.subredditQueryFailure( new Error( 404 ) ) );
-    expect( reducer )
-      .toMatch(
-        { isFetching : false
-        , loadError  : new Error( 404 )
-        }
-      );
-    expect( reducer.lastUpdate ).toBeLessThanOrEqualTo( moment().valueOf() );
+    const currentTime = moment().valueOf();
+
+    expect( reducer.isFetching ).to.equal( false );
+    expect( reducer.loadError ).to.deep.equal( new Error( 404 ) );
+    expect( reducer.lastUpdate ).to.be.within( startTime, currentTime );
   });
 });

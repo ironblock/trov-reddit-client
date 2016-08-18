@@ -1,7 +1,7 @@
 // ACTIONS - TEST
 // =============================================================================
 
-import expect from "expect";
+import { expect } from "chai";
 
 import * as SubredditActions     from "../src/scripts/actions/subreddit";
 import * as SubredditActionTypes from "../src/scripts/actions/types/subreddit";
@@ -18,7 +18,7 @@ describe( "Redux Actions", () => {
         };
 
       expect( SubredditActions.updateTargetSubreddit( text ) )
-        .toEqual( expectedAction );
+        .to.deep.equal( expectedAction );
     }
   );
 
@@ -32,7 +32,7 @@ describe( "Redux Actions", () => {
         };
 
       expect( SubredditActions.updateSelectedSubreddit( text ) )
-        .toEqual( expectedAction );
+        .to.deep.equal( expectedAction );
     }
   );
 
