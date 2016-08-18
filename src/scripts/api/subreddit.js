@@ -1,8 +1,6 @@
 // SUBREDDIT - API
 // =============================================================================
 
-import fetch from "isomorphic-fetch";
-
 // ACTION CONSTANTS
 import * as SubredditActions from "../actions/subreddit";
 

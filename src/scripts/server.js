@@ -7,6 +7,9 @@
 // will not attempt to require() images.
 delete process.env.BROWSER;
 
+// POLYFILL FETCH
+import "isomorphic-fetch";
+
 // NODE BUILTINS
 import http        from "http";
 import compression from "compression";
