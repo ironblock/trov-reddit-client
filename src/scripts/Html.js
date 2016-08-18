@@ -45,7 +45,7 @@ export default class Html extends Component {
           } />
 
           {/* BUNDLED JAVASCRIPT PAYLOAD */}
-          <script src="./static/bundle.js" defer />
+          <script src="/static/bundle.js" defer />
         </body>
       </html>
     );
