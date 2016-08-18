@@ -62,6 +62,14 @@ module.exports =
           , path.resolve( "./src/scripts" )
           ]
         }
+      // JSON
+      , { test: /\.(json|schema)$/
+        , loader: "json"
+        , query: { name: "[name].[ext]" }
+        , include:
+          [ path.resolve( "./test_constants" )
+          ]
+        }
       // FONTS AND IMAGES
       , { test: /\.(eot|woff|woff2|ttf|svg|png|jpg|jpeg)/
         , loader: "url"
