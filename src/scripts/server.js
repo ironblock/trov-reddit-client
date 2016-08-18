@@ -112,8 +112,11 @@ if ( process.env.NODE_ENV === "production" ) {
   console.info( "Express webserver started in DEVELOPMENT mode" );
 
   app.use( devMiddleware( compiler
-    , { noInfo     : true
-      , publicPath : config.output.publicPath
+    , { noInfo             : true
+      , hot                : true
+      , publicPath         : config.output.publicPath
+      , historyApiFallback : true
+      , stats              : { colors: true }
       }
   ));
 

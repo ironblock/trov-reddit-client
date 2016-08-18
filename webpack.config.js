@@ -9,7 +9,8 @@ const webpack = require( "webpack" );
 module.exports =
   { devtool: "eval"
   , entry:
-    [ "webpack-hot-middleware/client"
+    [ "webpack/hot/dev-server"
+    , "webpack-hot-middleware/client"
     , path.resolve( "./src/scripts/client" )
     ]
   , output:
