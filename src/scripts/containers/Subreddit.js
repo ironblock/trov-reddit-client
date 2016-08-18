@@ -11,7 +11,7 @@ import { subredditQuery } from "../api/subreddit";
 // VIEW
 import Subreddit from "../views/Subreddit";
 
-class SubredditContainer extends Component {
+export class SubredditContainer extends Component {
   static propTypes =
     { selected   : PropTypes.string
     , posts      : PropTypes.array
@@ -57,15 +57,14 @@ class SubredditContainer extends Component {
     // Forces a re-query of posts for the current subreddit, and may be called
     // by the user to manually issue a refresh.
     this.cleanUpRefreshLoop();
-    this.checkRefreshNeeded();
+    this.checkRefreshNeeded( true );
   }
 
-  checkRefreshNeeded () {
+  checkRefreshNeeded ( force ) {
     // If our posts require an update, refresh them
-    if ( this.postsAreStale ) {
+    if ( force || this.postsAreStale() ) {
       this.props.queryPosts();
     }
-
     // Reset the loop
     this.refreshLoop = setTimeout( this.checkRefreshNeeded, this.props.staleAfter );
   }
