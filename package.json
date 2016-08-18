@@ -12,7 +12,7 @@
     "mocha": "mocha --compilers js:babel-register --recursive",
     "eslint": "eslint ./src/scripts",
     "test": "npm run eslint && npm run mocha",
-    "test:watch": "npm test --watch"
+    "develop": "node ./webserver.js"
   },
   "repository": {
     "type": "git",
