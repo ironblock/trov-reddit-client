@@ -11,7 +11,7 @@ import Store from "./store";
 import App from "./views/App";
 
 // VIEWS
-import Subreddit from "./views/Subreddit";
+import Subreddit from "./containers/Subreddit";
 
 const handleFrontPageSelect = () => {
   // If the IndexRoute is loaded, the user is on the front page, and we need to
