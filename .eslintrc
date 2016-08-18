@@ -9,7 +9,7 @@
   , "no-multi-spaces": 0
   , "strict": 0
   , "eol-last": 1
-  , "no-console": ["error", { "allow": ["warn", "error"] }]
+  , "no-console": ["error", { "allow": ["warn", "error", "info"] }]
 
   , "react/no-deprecated": 1
   , "react/no-did-mount-set-state": 1
@@ -20,7 +20,7 @@
   , "react/react-in-jsx-scope": 1
   , "react/require-render-return": 1
   , "react/sort-comp": 1
-  , "react/wrap-multilines": 1
+  , "react/jsx-wrap-multilines": 1
   , "react/jsx-boolean-value": 1
   , "react/jsx-closing-bracket-location": 1
   , "react/jsx-indent": [ 1, 2 ]
