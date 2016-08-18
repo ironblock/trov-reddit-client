@@ -11,7 +11,7 @@ import { updateTargetSubreddit } from "../actions/subreddit";
 import SubSelector from "../components/SubSelector";
 
 // CONTAINER
-class SubSelectorContainer extends Component {
+export class SubSelectorContainer extends Component {
   constructor ( props ) {
     super( props );
   }
