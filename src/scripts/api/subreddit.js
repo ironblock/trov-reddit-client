@@ -17,16 +17,24 @@ export function subredditQuery () {
 
     dispatch( SubredditActions.subredditQueryRequest() );
 
-    fetch( `http://www.reddit.com/${ targetPath }.json` )
-      .then( response => response.json() )
+    return fetch( `http://reddit.com/${ targetPath }.json` )
+      .then( response => {
+        if ( response.ok ) {
+          return response.json();
+        } else {
+          throw new Error( response.status );
+        }
+      })
       .then( json => {
         if ( json.error ) {
           // Query errors (such as 404) will have an 'error' parameter.
-          dispatch( SubredditActions.subredditQueryFailure( new Error( json ) ) );
-        } else {
-          dispatch( SubredditActions.subredditQuerySuccess( json ) );
+          return dispatch( SubredditActions.subredditQueryFailure( new Error( json ) ) );
+        } else if ( json ) {
+          return dispatch( SubredditActions.subredditQuerySuccess( json ) );
         }
       })
-      .catch( error => SubredditActions.subredditQuerySuccess( new Error( error ) ) );
+      .catch( error => {
+        return dispatch( SubredditActions.subredditQueryFailure( error ) );
+      });
   };
 }
