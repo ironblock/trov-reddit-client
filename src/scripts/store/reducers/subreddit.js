@@ -14,15 +14,17 @@ export default handleActions(
     )
   , [ SubredditActionTypes.SUBREDDIT_QUERY_SUCCESS ]: ( state, action ) => (
       { ...state
-      , isFetching: false
-      , posts     : action.payload.data.children || []
-      , lastUpdate: moment().valueOf()
+      , isFetching : false
+      , loadError  : null
+      , posts      : action.payload.data.children || []
+      , lastUpdate : moment().valueOf()
       }
     )
-  , [ SubredditActionTypes.SUBREDDIT_QUERY_FAILURE ]: state => (
+  , [ SubredditActionTypes.SUBREDDIT_QUERY_FAILURE ]: ( state, action ) => (
       { ...state
-      , isFetching: false
-      , lastUpdate: moment().valueOf()
+      , isFetching : false
+      , loadError  : action.payload
+      , lastUpdate : moment().valueOf()
       }
     )
 
