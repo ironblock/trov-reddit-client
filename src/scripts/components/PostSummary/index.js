@@ -59,7 +59,7 @@ const PostSummary = ( props ) => {
             + moment.unix( props.created_utc ).local().fromNow()
             + " by "
             }
-            <a href={`//reddit.com/user/${ props.author }`}>
+            <a href={`//www.reddit.com/user/${ props.author }`}>
               { props.author }
             </a>
           </span>
@@ -68,7 +68,7 @@ const PostSummary = ( props ) => {
           : (
             <a
               className = "origin"
-              href      = {`//reddit.com/r/${ props.subreddit }`}
+              href      = {`//www.reddit.com/r/${ props.subreddit }`}
               target    = "_blank"
             >
               { `r/${ props.subreddit }` }
@@ -87,7 +87,7 @@ const PostSummary = ( props ) => {
         <a
           className = "comments"
           target    = "_blank"
-          href      = { `//reddit.com${ props.permalink }` }
+          href      = { `//www.reddit.com${ props.permalink }` }
         >
           { `${ props.num_comments } comments` }
         </a>

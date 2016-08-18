@@ -17,7 +17,7 @@ export function subredditQuery () {
 
     dispatch( SubredditActions.subredditQueryRequest() );
 
-    return fetch( `http://reddit.com/${ targetPath }.json` )
+    return fetch( `//www.reddit.com/${ targetPath }.json` )
       .then( response => {
         if ( response.ok ) {
           return response.json();
