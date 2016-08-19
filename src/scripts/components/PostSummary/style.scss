@@ -44,9 +44,12 @@ $post-basis: 100px;
     @include align-items( center );
     @include flex( 0 0 auto );
 
-    width      : $post-basis;
-    min-height : $post-basis;
-    background : #DDD;
+    width          : $post-basis;
+    min-height     : $post-basis;
+    background     : #DDD;
+    color          : #999;
+    text-transform : uppercase;
+    font-size      : ms( 2 );
 
     & > img {
       max-width  : 100%;
