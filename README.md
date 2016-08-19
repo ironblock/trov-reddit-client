@@ -95,3 +95,22 @@ Runs `mocha`. Performs unit tests on all views, components, containers, and data
 
 #### `npm run develop`
 Runs `node ./webserver`. Starts the live development environment while bypassing all tests.
+
+
+## Next Steps
+No app is ever truly "done", even one as small as this. Here are some things I would consider to be "next steps" if this were a real product.
+
+### Production Ready
+There are a few production-readiness elements missing from this application.
+* A separate, production webpack config needs to be authored.
+* The code should be minified and uglified
+* webpack's extract-text plugin should be used to create a separate CSS file
+* The sourcemaps should be switched to `cheap-module-source-map` to reduce their size
+* Rules would need to be established for the handling of images and fonts (there aren't any, though)
+* The server would need some conditional logic to not use any of the webpack middlewares, and just serve the bundled javascript directly.
+
+### Missing Features
+Some particularly low hanging fruit was omitted for the sake of brevity (and to keep to the literal spec).
+* The reddit API allows query parameters to select the sorting (Hot, Controversial, etc). I'd like to see these offered as some kind of segmented control at the top
+* Flair, even the basic [ NSFW ] tag, could be added.
+* The API returns linked media information, which could be brought into a carousel or other media viewer
