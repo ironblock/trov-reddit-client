@@ -29,7 +29,7 @@ describe( "Post Summary (Presentational)", () => {
     , () => {
       const { enzymeWrapper } = setup({ ...testPost });
 
-      expect( enzymeWrapper.find( ".post-summary" ) ).to.exist;
+      expect( enzymeWrapper.find( PostSummary ) ).to.exist;
       expect( enzymeWrapper.find( ".score" ) ).to.exist;
       expect( enzymeWrapper.find( ".post-data" ) ).to.exist;
   });

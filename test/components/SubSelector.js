@@ -27,7 +27,7 @@ describe( "Subreddit Selector (Presentational)", () => {
     , () => {
       const { enzymeWrapper } = setup();
 
-      expect( enzymeWrapper.find( ".sub-selector" ) ).to.exist;
+      expect( enzymeWrapper.find( SubSelector ) ).to.exist;
   });
 
   it( "should handle changing input for the target subreddit"
