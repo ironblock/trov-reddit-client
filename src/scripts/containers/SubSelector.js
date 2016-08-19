@@ -1,7 +1,7 @@
 // SUB SELECTOR - CONTAINER
 // =============================================================================
 
-import React, { Component } from "react";
+import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
 
 // REDUX ACTIONS
@@ -12,6 +12,11 @@ import SubSelector from "../components/SubSelector";
 
 // CONTAINER
 export class SubSelectorContainer extends Component {
+  static propTypes =
+    { updateTargetSubreddit   : PropTypes.string.isRequired
+    , onTargetSubredditChange : PropTypes.func.isRequired
+    };
+
   constructor ( props ) {
     super( props );
   }
