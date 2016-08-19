@@ -2,7 +2,6 @@
 // =============================================================================
 
 import React from "react";
-import moment from "moment";
 import { expect } from "chai";
 import { spy, useFakeTimers } from "sinon";
 import { mount, shallow } from "enzyme";
