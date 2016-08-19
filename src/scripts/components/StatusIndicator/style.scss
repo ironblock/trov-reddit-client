@@ -40,7 +40,6 @@ $animation-curve: cubic-bezier(0.42, 0, 0.05, 1);
   height        : $indicator-basis;
   width         : $indicator-basis;
   padding       : $indicator-basis / 4;
-  position      : absolute;
   color         : white;
   text-align    : center;
   border-radius : 50%;
@@ -50,7 +49,7 @@ $animation-curve: cubic-bezier(0.42, 0, 0.05, 1);
   }
 
   &.minimized {
-    margin-top : 40vh;
+    margin-top : 70vh;
     font-size  : ms( 1 );
   }
 }
