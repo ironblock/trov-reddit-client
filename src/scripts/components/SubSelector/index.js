@@ -3,7 +3,7 @@
 
 import React, { PropTypes } from "react";
 import classNames from "classnames";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 
 // COMPONENT
 const SubSelector = ( props ) => {
@@ -25,6 +25,10 @@ const SubSelector = ( props ) => {
         {"/r/"}
         <input
           type     = "text"
+          onKeyDown = { event => event.which === 13
+              ? browserHistory.push( subredditLink )
+              : null
+          }
           onChange = { event => props.onTargetSubredditChange( event.target.value ) }
           value    = { props.targetSubreddit }
         />
