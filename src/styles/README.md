@@ -1,0 +1,2 @@
+# Styles
+All styles in the app are declared via SASS, and transpiled to CSS. The base application styles are imported in the root App view, and all component specific styles are required inline by the component that uses them.
