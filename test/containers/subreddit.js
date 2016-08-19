@@ -7,11 +7,11 @@ import { spy, useFakeTimers } from "sinon";
 import { mount, shallow } from "enzyme";
 
 // TEST DATA
-import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
+import sampleSubredditResponse from "../../test_data/sampleSubredditResponse.json";
 
 // VIEW
-import { SubredditContainer } from "../src/scripts/containers/Subreddit";
-import Subreddit from "../src/scripts/views/Subreddit";
+import { SubredditContainer } from "../../src/scripts/containers/Subreddit";
+import Subreddit from "../../src/scripts/views/Subreddit";
 
 var clock;
 const timeout = 6000;

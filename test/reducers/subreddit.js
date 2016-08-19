@@ -4,10 +4,10 @@
 import { expect } from "chai";
 import moment from "moment";
 
-import * as SubredditActions from "../src/scripts/actions/subreddit";
-import subredditReducer      from "../src/scripts/store/reducers/subreddit";
+import * as SubredditActions from "../../src/scripts/actions/subreddit";
+import subredditReducer      from "../../src/scripts/store/reducers/subreddit";
 
-import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
+import sampleSubredditResponse from "../../test_data/sampleSubredditResponse.json";
 
 const startTime = moment().valueOf();
 const initialState =

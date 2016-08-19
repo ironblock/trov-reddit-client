@@ -6,11 +6,11 @@ import { expect } from "chai";
 import { shallow } from "enzyme";
 
 // TEST DATA
-import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
+import sampleSubredditResponse from "../../test_data/sampleSubredditResponse.json";
 
 // VIEW
-import Subreddit from "../src/scripts/views/Subreddit";
-import PostSummary from "../src/scripts/components/PostSummary";
+import Subreddit from "../../src/scripts/views/Subreddit";
+import PostSummary from "../../src/scripts/components/PostSummary";
 
 const baseProps =
   { selected : null
