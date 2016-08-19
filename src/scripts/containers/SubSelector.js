@@ -13,7 +13,7 @@ import SubSelector from "../components/SubSelector";
 // CONTAINER
 export class SubSelectorContainer extends Component {
   static propTypes =
-    { updateTargetSubreddit   : PropTypes.string.isRequired
+    { targetSubreddit         : PropTypes.string.isRequired
     , onTargetSubredditChange : PropTypes.func.isRequired
     };
 
