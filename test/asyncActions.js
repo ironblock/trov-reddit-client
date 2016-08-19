@@ -25,7 +25,7 @@ describe( "Redux Async Actions", () => {
   // // SUBREDDIT QUERY (SUCCESS)
   it( "creates a SUBREDDIT_QUERY_SUCCESS action when the JSON is fetched successfully"
     , () => {
-      fetchMock.mock( "//www.reddit.com/r/veryfastdoggos.json"
+      fetchMock.mock( "https://www.reddit.com/r/veryfastdoggos.json"
                     , { body: sampleSubredditResponse }
                     );
 
@@ -59,7 +59,7 @@ describe( "Redux Async Actions", () => {
   // SUBREDDIT QUERY (FAILURE)
   it( "creates a SUBREDDIT_QUERY_FAILURE action when the JSON cannot be fetched"
     , () => {
-      fetchMock.mock( "//www.reddit.com/r/veryfastdoggos.json"
+      fetchMock.mock( "https://www.reddit.com/r/veryfastdoggos.json"
                     , { status: 404 }
                     );
 
