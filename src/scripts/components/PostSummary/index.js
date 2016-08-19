@@ -9,16 +9,26 @@ import classNames from "classnames";
 import moment from "moment";
 
 // HELPERS
-const getThumbnailSource = source => {
-  switch( source ) {
-    case "self":
-      return;
+const getThumbnail = source => {
+  if ( source ) {
+    let content;
 
-    case "nsfw":
-      return;
+    switch( source ) {
+      case "self":
+        content = <span>self</span>;
+        break;
 
-    default:
-      return source;
+      case "nsfw":
+        content = <span>nsfw</span>;
+        break;
+
+      default:
+        content = <img src={ source } />;
+        break;
+    }
+    return <div className="thumbnail">{ content }</div>;
+  } else {
+    return null;
   }
 };
 
@@ -48,9 +58,7 @@ const PostSummary = ( props ) => {
         { props.score }
       </div>
 
-      <div className="thumbnail">
-        <img src={ getThumbnailSource( props.thumbnail ) } />
-      </div>
+      { getThumbnail( props.thumbnail ) }
 
       <div className="post-data">
         <span className="attribution">
