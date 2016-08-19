@@ -5,6 +5,7 @@
 // and other summary information.
 
 import React, { PropTypes } from "react";
+import { Link } from "react-router";
 import classNames from "classnames";
 import moment from "moment";
 
@@ -74,13 +75,12 @@ const PostSummary = ( props ) => {
           { sameOriginSubreddit
           ? null
           : (
-            <a
+            <Link
               className = "origin"
-              href      = {`//www.reddit.com/r/${ props.subreddit }`}
-              target    = "_blank"
+              to      = {`/r/${ props.subreddit }`}
             >
               { `r/${ props.subreddit }` }
-            </a>
+            </Link>
           ) }
         </span>
 
