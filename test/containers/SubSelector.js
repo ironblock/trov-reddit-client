@@ -4,9 +4,11 @@
 import React from "react";
 import { expect } from "chai";
 import { shallow } from "enzyme";
-import { Link } from "react-router";
 
-// VIEW
+// CONTAINER
+import { SubSelectorContainer } from "../../src/scripts/containers/SubSelector";
+
+// COMPONENT
 import SubSelector from "../../src/scripts/components/SubSelector";
 
 const baseProps =
@@ -16,7 +18,7 @@ const baseProps =
 
 function setup ( inputProps = {} ) {
   const props = { ...baseProps, ...inputProps };
-  const enzymeWrapper = shallow( <SubSelector { ...props } /> );
+  const enzymeWrapper = shallow( <SubSelectorContainer { ...props } /> );
 
   return { props, enzymeWrapper };
 }
