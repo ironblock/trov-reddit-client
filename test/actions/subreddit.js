@@ -3,8 +3,8 @@
 
 import { expect } from "chai";
 
-import * as SubredditActions     from "../src/scripts/actions/subreddit";
-import * as SubredditActionTypes from "../src/scripts/actions/types/subreddit";
+import * as SubredditActions     from "../../src/scripts/actions/subreddit";
+import * as SubredditActionTypes from "../../src/scripts/actions/types/subreddit";
 
 describe( "Redux Actions", () => {
 

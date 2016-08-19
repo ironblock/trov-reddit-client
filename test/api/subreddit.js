@@ -10,15 +10,15 @@ import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import { expect } from "chai";
 
-import sampleSubredditResponse from "../test_data/sampleSubredditResponse.json";
+import sampleSubredditResponse from "../../test_data/sampleSubredditResponse.json";
 
-import * as SubredditAPI         from "../src/scripts/api/subreddit";
-import * as SubredditActionTypes from "../src/scripts/actions/types/subreddit";
+import * as SubredditAPI         from "../../src/scripts/api/subreddit";
+import * as SubredditActionTypes from "../../src/scripts/actions/types/subreddit";
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore( middlewares );
 
-describe( "Redux Async Actions", () => {
+describe( "Subreddit API Middleware", () => {
 
   afterEach( fetchMock.restore );
 
