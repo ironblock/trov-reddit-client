@@ -12,6 +12,7 @@
     "mocha": "mocha --compilers js:babel-register --require ./test_helpers/virtualDOM.js --recursive ./test",
     "eslint": "eslint ./src/scripts",
     "test": "npm run eslint && npm run mocha",
+    "start": "npm run test && npm run develop",
     "develop": "node ./webserver.js"
   },
   "repository": {
