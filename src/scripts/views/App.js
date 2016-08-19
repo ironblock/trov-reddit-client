@@ -8,6 +8,7 @@ import React from "react";
 
 // CONTAINERS
 import SubSelector from "../containers/SubSelector";
+import StatusIndicator from "../containers/StatusIndicator";
 
 const App = ({ children }) => {
   // GLOBAL APP STYLES
@@ -19,6 +20,7 @@ const App = ({ children }) => {
     <div className="app-wrapper">
       <SubSelector />
       { children }
+      <StatusIndicator />
     </div>
   );
 };

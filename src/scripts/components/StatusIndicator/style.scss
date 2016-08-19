@@ -1,0 +1,56 @@
+// STATUS INDICATOR - STYLES
+// =============================================================================
+
+@import "../../../styles/modules/flexbox";
+@import "../../../styles/modules/gradients";
+@import "../../../styles/modules/motion";
+@import "../../../styles/modules/variables";
+
+$indicator-basis: 10em;
+$animation-curve: cubic-bezier(0.42, 0, 0.05, 1);
+
+.status-indicator-wrapper {
+  @include flex-display( flex );
+  @include justify-content( center );
+  @include align-items( center );
+  @include transition( opacity 0.250s $animation-curve );
+
+  position: fixed;
+  pointer-events: none;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  top: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.status-indicator {
+  @include flex-display( flex );
+  @include justify-content( center );
+  @include align-items( center );
+  @include gradient-x( #43cea2, #185a9d );
+  @include transition( all 0.400s $animation-curve );
+
+  margin-top : 0;
+  font-size  : ms( 2 );
+
+  height        : $indicator-basis;
+  width         : $indicator-basis;
+  padding       : $indicator-basis / 4;
+  position      : absolute;
+  color         : white;
+  text-align    : center;
+  border-radius : 50%;
+
+  &.error {
+    @include gradient-x( #cb2d3e, #ef473a );
+  }
+
+  &.minimized {
+    margin-top : 40vh;
+    font-size  : ms( 1 );
+  }
+}
