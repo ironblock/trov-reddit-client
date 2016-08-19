@@ -1,3 +1,8 @@
+// APPLICATION ROUTES
+// =============================================================================
+// Returns the routes to be used by react-router and contains logic to sync
+// visits to /r/* with the selected subreddit.
+
 import React from "react";
 import { Route, IndexRoute } from "react-router";
 
